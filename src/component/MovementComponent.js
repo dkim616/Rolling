@@ -6,7 +6,9 @@ var MovementComponent = Class(Component, function(supr) {
 	};
 
 	this.update = function(context, dt) {
-		context.style.x += (0.3 * dt);
+		if (GLOBAL.input.pressDown) {
+			context.style.x += (0.3 * dt);
+		}
 	};
 });
 

@@ -17,8 +17,22 @@ exports = Class(View, function(supr) {
 
 		supr(this, "init", [opts]);
 
+		this.setup();
+
 		this.square = new Square(device.width / 2, device.height / 2, 50, 50, "#CCCCCC");
 		this.addSubview(this.square);
+	};
+
+	this.setup = function() {
+		this.on("InputStart", bind(this, function() {
+			GLOBAL.input.pressDown = true;
+			// GLOBAL.input.pressUp = false;
+		}));
+
+		this.on("InputOut", bind(this, function() {
+			GLOBAL.input.pressDown = false;
+			// GLOBAL.input.pressUp = true;
+		}));
 	};
 
 });

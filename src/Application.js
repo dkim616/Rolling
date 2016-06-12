@@ -2,14 +2,17 @@ import device;
 import ui.StackView as StackView;
 
 import src.GameView as GameView;
+import src.Input as Input;
 
 exports = Class(GC.Application, function () {
 
 	this.initUI = function () {
 
+		GLOBAL.input = new Input();
+
 		var gameView = new GameView();
 
-		var rootView = new StackView({
+		this.stackView = new StackView({
 			superview: this,
 			x: 0,
 			y: 0,
@@ -19,12 +22,14 @@ exports = Class(GC.Application, function () {
 			scale: 1
     	});
 
-		rootView.push(gameView);
+		this.stackView.push(gameView);
 
   	};
 
   	this.launchUI = function () {
-
+  		if (this.stackView.getCurrentView() instanceof GameView) {
+  			this.stackView.getCurrentView().run = true;
+  		}
   	};
 
 });
