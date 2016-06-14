@@ -20,10 +20,18 @@ exports = Class(View, function(supr) {
 		this.setup();
 
 		this.square = new Square(device.width / 2, device.height / 2, 50, 50, "#CCCCCC");
+		this.topSquare = new Square(device.width / 2, device.height / 2 - 25, 50, 50, "#FFFFFF");
 		this.addSubview(this.square);
+		this.addSubview(this.topSquare);
 	};
 
 	this.setup = function() {
+		this.setupGameStage();
+		this.setupUI();
+		this.setupInputs();
+
+
+
 		this.on("InputStart", bind(this, function() {
 			GLOBAL.input.pressDown = true;
 			// GLOBAL.input.pressUp = false;
@@ -34,5 +42,19 @@ exports = Class(View, function(supr) {
 			// GLOBAL.input.pressUp = true;
 		}));
 	};
+
+	this.setupGameStage = function() {
+
+	};
+
+	this.setupUI = function() {
+
+	};
+
+	this.setupInputs = function() {
+
+	};
+
+	this.run = false; // TODO
 
 });

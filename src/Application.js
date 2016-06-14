@@ -2,7 +2,7 @@ import device;
 import ui.StackView as StackView;
 
 import src.GameView as GameView;
-import src.Input as Input;
+import src.input.Input as Input;
 
 exports = Class(GC.Application, function () {
 
