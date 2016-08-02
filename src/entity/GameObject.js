@@ -12,7 +12,9 @@ var GameObject = Class(View, function(supr) {
 
 	this.tick = function(dt) {
 		for (var component in this.components) {
-			this.components[component].update(this, dt);
+			if (this.components.hasOwnProperty(component)) {
+				this.components[component].update(this, dt);
+			}
 		}
 	};
 

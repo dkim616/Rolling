@@ -18,7 +18,7 @@ var Square = Class(GameObject, function(supr) {
 	};
 
 	this.setup = function() {
-		this.addComponent(MovementComponent.key, new MovementComponent(this));
+		//this.addComponent(MovementComponent.key, new MovementComponent(this));
 	};
 
 });
