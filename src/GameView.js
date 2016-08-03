@@ -3,6 +3,7 @@ import ui.View as View;
 
 import src.entity.GameObject as GameObject;
 import src.entity.Square as Square;
+import src.input.ButtonInput as ButtonInput;
 import src.input.MovementInput as MovementInput;
 
 exports = Class(View, function(supr) {
@@ -31,9 +32,7 @@ exports = Class(View, function(supr) {
 		this.setupUI();
 		this.setupInputs();
 
-
-
-		this.on("InputStart", bind(this, function(event, point) {
+		this.on("InputStart", function(event, point) {
 			// console.log("InputStart at:", point.x, point.y);
 			// GLOBAL.input.pressDown = true;
 			// GLOBAL.input.pressUp = false;
@@ -41,7 +40,7 @@ exports = Class(View, function(supr) {
 				inputStartEvt: event,
 				radius: 10
 			});
-		}));
+		});
 
 		this.on("InputOut", bind(this, function(over, overCount, atTarget) {
 			// console.log("InputOut:", over, overCount, atTarget);
@@ -85,6 +84,16 @@ exports = Class(View, function(supr) {
 	this.setupInputs = function() {
 		this.movementInputView = new MovementInput(0, 0, device.width/2, device.height, true);
 		this.addSubview(this.movementInputView);
+
+		this.rollInputView = new ButtonInput(device.width / 2, 0, device.width/2, device.height, true);
+		this.rollInputView.setAction(this, function() {
+			this.test();
+		});
+		this.addSubview(this.rollInputView);
+	};
+
+	this.test = function() {
+		console.log("test");
 	};
 
 	this.run = false; // TODO

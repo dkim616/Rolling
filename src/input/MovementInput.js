@@ -129,6 +129,7 @@ exports = Class(View, function(supr) {
 
 		this.on("DragStop", bind(this, function(dragEvent, selectEvent) {
 			this.state = this.states.neutral;
+
 			// console.log(
 			// 	"DragStop at:", 
 			// 	dragEvent.srcPt.x, 
@@ -137,6 +138,10 @@ exports = Class(View, function(supr) {
 			// 	selectEvent.srcPt.y
 			// );
 		}));
+	};
+
+	this.setEnable = function(enable) {
+		this.enabled = enable;
 	};
 
 });
