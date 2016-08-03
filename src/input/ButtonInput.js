@@ -26,6 +26,7 @@ exports = Class(View, function(supr) {
 	this.setupEvents = function() {
 		this.on("InputStart", function() {
 			if (this.enabled && this.action) {
+				console.log(this.action);
 				this.action();
 
 				if (this.testAction) {
@@ -37,6 +38,16 @@ exports = Class(View, function(supr) {
 		});
 
 		this.on("InputSelect", function() {
+			if (this.enabled && this.testAction) {
+				if (this.testAction) {
+					this.updateOpts({
+						backgroundColor: "rgba(0, 0, 0, 0)"
+					});
+				}
+			}
+		});
+
+		this.on("InputOut", function() {
 			if (this.enabled && this.testAction) {
 				if (this.testAction) {
 					this.updateOpts({

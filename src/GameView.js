@@ -1,7 +1,9 @@
 import device;
 import ui.View as View;
 
+import src.component.MovementComponent as MovementComponent;
 import src.entity.GameObject as GameObject;
+import src.entity.Player as Player;
 import src.entity.Square as Square;
 import src.input.ButtonInput as ButtonInput;
 import src.input.MovementInput as MovementInput;
@@ -74,7 +76,8 @@ exports = Class(View, function(supr) {
 	};
 
 	this.setupGameStage = function() {
-
+		this.player = new Player(device.width / 2, device.height / 2 - 25, 50, 50, "#FFFFFF");
+		this.addSubview(this.player);
 	};
 
 	this.setupUI = function() {
@@ -84,12 +87,13 @@ exports = Class(View, function(supr) {
 	this.setupInputs = function() {
 		this.movementInputView = new MovementInput(0, 0, device.width/2, device.height, true);
 		this.addSubview(this.movementInputView);
+		GLOBAL.movementInput = this.movementInputView;
 
 		this.rollInputView = new ButtonInput(device.width / 2, 0, device.width/2, device.height, true);
-		this.rollInputView.setAction(this, function() {
-			this.test();
-		});
+		this.rollInputView.setAction(this.player.components[MovementComponent.prototype.key], this.player.components[MovementComponent.prototype.key].roll);
+		console.log(this.player.components);
 		this.addSubview(this.rollInputView);
+		GLOBAL.rollInput = this.rollInputView;
 	};
 
 	this.test = function() {

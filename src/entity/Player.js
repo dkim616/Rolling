@@ -1,6 +1,7 @@
+import src.Component.MovementComponent as MovementComponent;
 import src.Entity.GameObject as GameObject;
 
-var Square = Class(GameObject, function(supr) {
+var Player = Class(GameObject, function(supr) {
 
 	this.init = function(x, y, width, height, backgroundColor, opts) {
 		supr(this, "init", [opts]);
@@ -17,8 +18,9 @@ var Square = Class(GameObject, function(supr) {
 	};
 
 	this.setup = function() {
+		this.addComponent(MovementComponent.prototype.key, new MovementComponent(this));
 	};
 
 });
 
-exports = Square;
+exports = Player;
