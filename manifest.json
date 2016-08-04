@@ -9,6 +9,11 @@
     "name": "Your Studio Name",
     "stagingDomain": "staging.example.com"
   },
+  "ios": {
+  	"bundleID": "com.daniel.rolling",
+  	"appleID": "4br6v2zkfq",
+  	"version": "1.0.0"
+  },
   "supportedOrientations": [
     "landscape"
   ],
