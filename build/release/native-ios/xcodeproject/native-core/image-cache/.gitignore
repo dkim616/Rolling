@@ -1,5 +1,0 @@
-*.dSYM
-imagecache
-.ycm_extra_conf.pyc
-cache/*
-cache/.etags

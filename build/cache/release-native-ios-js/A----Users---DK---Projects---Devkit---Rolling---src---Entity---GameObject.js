@@ -1,3 +1,0 @@
-2d91c665d5f60b767e84ba69062b2113
-jsio("import ui.View as View");jsio("import src.Component.Component as Component");var GameObject=__class__,GameObject=GameObject(function(){return this.init&&this.init.apply(this,arguments)},View,function(a){this.components={};this.init=function(b){a(this,"init",[b])};this.tick=function(a){for(var c in this.components)this.components.hasOwnProperty(c)&&this.components[c].update(a)}});
-GameObject.prototype.addComponent=function(a,b){return!(a in this.components)&&b instanceof Component?(this.components[a]=b,!0):!1};GameObject.prototype.removeComponent=function(a){return a in this.components?(delete this.components[a],!0):!1};exports=GameObject;

@@ -1,3 +1,0 @@
-17b715c17f0b746510744c53be032d66
-jsio("import device");jsio("import ui.StackView as StackView");jsio("import src.GameView as GameView");jsio("import src.input.Input as Input");var Users_DK_Projects_Devkit_Rolling_src_Application=__class__;
-exports=Users_DK_Projects_Devkit_Rolling_src_Application(function(){return this.init&&this.init.apply(this,arguments)},GC.Application,function(){this.initUI=function(){GLOBAL.input=new Input;var a=new GameView;this.stackView=new StackView({superview:this,x:0,y:0,width:device.width,height:device.height,clip:!0,scale:1});this.stackView.push(a)};this.launchUI=function(){this.stackView.getCurrentView()instanceof GameView&&(this.stackView.getCurrentView().run=!0)}});

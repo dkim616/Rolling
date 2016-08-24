@@ -1,2 +1,0 @@
-f574f94038f209c7f54ec681cb924021
-jsio("import src.Component.MovementComponent as MovementComponent");jsio("import src.Entity.GameObject as GameObject");var Player=__class__,Player=Player(function(){return this.init&&this.init.apply(this,arguments)},GameObject,function(a){this.init=function(b,c,d,e,f,g){a(this,"init",[g]);this.updateOpts({x:b,y:c,width:d,height:e,backgroundColor:f});this.setup()};this.setup=function(){this.addComponent(MovementComponent.prototype.key,new MovementComponent(this))}});exports=Player;
